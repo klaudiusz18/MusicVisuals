@@ -11,10 +11,21 @@ public class KlaudiuszVisual extends PApplet {
     AudioPlayer ap; //connect to mp3
     AudioBuffer ab; // samples
 
+    float[] lerpedBuffer;
+
+
+    
+
     public void settings() {
         // size of screen 
-        size(1000,1000);
+        fullScreen(P3D, SPAN);
     }
+
+    float y = 200;
+    float lepredY = y;
+
+    int which = 0;
+
 
     public void setup() {
         minim = new Minim(this);
@@ -22,25 +33,113 @@ public class KlaudiuszVisual extends PApplet {
         ab = ap.mix; // connect the buffer to the mp3 file
         ap.play();
         colorMode(HSB);
+        lerpedBuffer = new float[width];
 
     }
+
+    public void keyPressed() {
+        if (keyCode >= '0' && keyCode <= '6') {
+            which = keyCode - '0';
+        }
+        if (keyCode == ' ') {
+            if (ap.isPlaying()) {
+                ap.pause();
+            } else {
+                ap.rewind();
+                ap.play();
+            }
+        }
+        if (keyCode == UP)
+        {
+            twoCubes = ! twoCubes;
+        }
+    }
+
+    float lerpedAverage = 0;
+    private float angle = 0;
+
+    private boolean twoCubes = false;
 
 
     public void draw() {
         background(0);
         stroke(255);
-        float halfHeight = height / 2;
+        //float halfHeight = height / 2;
+        float average = 0;
+        float sum = 0;
+        // average of the buffer
         for(int i =0; i < ab.size(); i++)
         {
-            float c = map(i, 0, ab.size(), 0, 255);
-            stroke(c, 255, 255);
-            line(i, halfHeight, i, halfHeight + ab.get(i) * halfHeight);
+            sum += abs(ab.get(i));
         }
 
-        
+        average = sum / ab.size();
+
+        // calculate the average amplitutde
+        lerpedAverage = lerp(lerpedAverage,average, 0.1f);
+
+        switch(which)
+        {
+            case 0:
+            {
+                //iterate over all elements in audio buffer
+                float c = map(average, 0, 1, 0, 255);
+                stroke(c, 255, 255);        
+                strokeWeight(4);
+                noFill();
+                ellipse(width / 2, height / 2, 50 + (lerpedAverage * 500), 50 + (lerpedAverage * 500));                       
+                break;
+            }   
+                
+            case 1:
+            {
+                float c = map(average, 0, 1, 0, 255);
+                stroke(c, 255, 255);        
+                strokeWeight(2);
+                noFill();
+                rectMode(CENTER);
+                float size = 50 + (lerpedAverage * 500);
+                rect(width / 2, height / 2, size, size);
+                break;
+            }
+            case 2:
+            {
+                lights();
+                strokeWeight(2);
+                float c = map(lerpedAverage, 0, 1, 0, 255);
+                stroke(c, 255, 255);
+                noFill();
+                //fill(100, 255, 255);
+                angle += 0.01f;
+                float s = 100 + (100 * lerpedAverage * 10);
+                
+                if (! twoCubes)
+                {
+                    translate(width / 2, height / 2, 0);
+                    rotateY(angle);
+                    rotateX(angle);
+                    box(s);
+                }
+                else
+                {
+                    pushMatrix();
+                    translate(width / 4, height / 2, 0);
+                    rotateY(angle);
+                    rotateX(angle);
+                    box(s);
+                    popMatrix();
+
+                    pushMatrix();
+                    translate(width * 0.75f, height / 2, 0);
+                    rotateY(angle);
+                    rotateX(angle);
+                    box(s);
+                    popMatrix();
+                    break;
+                }
+            }
+        }
     }
-
-
 }
 
 
