@@ -73,7 +73,7 @@ case 3:
 
 Picture 1: Ellipse
 
-![circle.png](images/circle.png)
+![An image](images/circle.png)
 
 Picture 2: Rectangle
 
