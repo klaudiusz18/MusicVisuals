@@ -33,57 +33,71 @@ This is a list of audio visualisers that were used in this assignment:
 3. Audio bar - sound responsive
 4. Audio bars going around the edge of screen
 
-This is a [hyperlink](http://bryanduggan.org)
 
-# Headings
-## Headings
-#### Headings
-##### Headings
 
-This is code:
+
+
+This is a sample code from my assignment:
 
 ```Java
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
+case 3:
+            {
+                 // Iterate over all the elements in the audio buffer
+                 for (int i = 0; i < ab.size(); i++) {
+
+                    float c = map(i, 0, ab.size(), 0, 255);
+                    stroke(c, 255, 255);
+                    lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);        
+                    line(i, halfHeight - lerpedBuffer[i] * halfHeight * 2, i, halfHeight + lerpedBuffer[i] * halfHeight * 2);
+                }        
+                break;
+            }
+
+            case 4:
+            {
+                for (int i = 0; i < ab.size(); i++) {
+
+                    float c = map(i, 0, ab.size(), 0, 255);
+                    stroke(c, 255, 255);
+                    lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);        
+                    line(0, i, lerpedBuffer[i] * halfHeight * 2, i);
+                    line(width, i, width - (lerpedBuffer[i] * halfHeight * 2), i);
+                    line(i, 0, i, lerpedBuffer[i] * halfHeight * 2);
+                    line(i, height, i, height - (lerpedBuffer[i] * halfHeight * 2));
+                }        
+                break;
+            } 
 ```
 
-So is this without specifying the language:
 
-```
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
 
-This is an image using a relative URL:
+Picture 1: Ellipse
 
-![An image](images/p8.png)
+![An image](images/circle.png)
 
-This is an image using an absolute URL:
+Picture 2: Rectangle
 
-![A different image](https://bryanduggandotorg.files.wordpress.com/2019/02/infinite-forms-00045.png?w=595&h=&zoom=2)
+![An image](images/rect.png)
+
+Picture 3: Cube
+
+![An image](images/cube.png)
+
+Picture 4: Duplicate Cube
+
+![An image](images/cube2.png)
+
+Picture 5: Audio Bar
+
+![An image](images/audio1.png)
+
+Picture 6: Audio Bar around the edge of screen
+
+![An image](images/audio2.png)
+
 
 This is a youtube video:
 
 [![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
 
-This is a table:
-
-| Heading 1 | Heading 2 |
-|-----------|-----------|
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
 
