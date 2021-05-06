@@ -37,7 +37,7 @@ public class KlaudiuszVisual extends PApplet {
     }
 
     public void keyPressed() {
-        if (keyCode >= '0' && keyCode <= '6') {
+        if (keyCode >= '0' && keyCode <= '4') {
             menu = keyCode - '0';
         }
         if (keyCode == ' ') {
