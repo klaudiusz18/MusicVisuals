@@ -98,6 +98,6 @@ Picture 6: Audio Bar around the edge of screen
 
 This is a youtube video:
 
-[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
+[![YouTube](yt.jpg)](https://youtu.be/EjRn8QV-8LU)
 
 
