@@ -18,8 +18,10 @@ This program uses different java processing libraries to connect to the minim an
 This assignment works on a simple menu basis. Press buttons between 0 and 4 to change in between each audio visulaiser.
 
 # How it works
+When you press to run the program a song should start playing and a shape that interacts with the audio. I implemented a menu to traverse through next audio visualiser. To go to next shape you need to press on your keyboard a number between 0 to 4. You automatically start at 0, so to move onto next shape press a button between 1 and 4. When you press to move onto the next audio visualiser you should see a new shape that also interacts with the song. When you press 2, it will bring up a cube that rotates around itself. You can also press the up arrow key on your keyboard you should be able to see a duplicate being created of the cube. To exit the program press esc and it close the window and stop the music from playing. 
 
 # What I am most proud of in the assignment
+What am most proud of is implementing the cube to be there and rotate around itself. I like the way it is 3D, it creates this unique look and the way it interacts with the audio and expands looks simply looks amazing and cool. Im most proud of this because anyone can just make a simple 2D shape however making a 3D shape is more challenging cause you have to ensure all the angles are correct making it a bit more difficult, however the fact the 3D shape was a bit harder to add it made it just a bit more satisfying at the end when it worked. Also I loved the making the long audio bar that is responsive to sound and it increases when the notes get higher in the song.
 
 # Markdown Tutorial
 
