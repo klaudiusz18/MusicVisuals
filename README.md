@@ -1,8 +1,8 @@
 # Music Visualiser Project
 
-Name:
+Name: Klaudiusz Nowakowski
 
-Student Number: 
+Student Number: C19412272
 
 ## Instructions
 - Fork this repository and use it a starter project for your assignment
@@ -12,8 +12,10 @@ Student Number:
 - Check out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet
 
 # Description of the assignment
+This program uses different java processing libraries to connect to the minim and make the audio from a song interact with different shapes and change colour as the song is playing. The theme of this assesement is "something beautiful to enjoy while listening to music". I was required to make a youube video demonstrating how my assignment operates which can be located down below.
 
 # Instructions
+This assignment works on a simple menu basis. Press buttons between 0 and 4 to change in between each audio visulaiser.
 
 # How it works
 
