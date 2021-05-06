@@ -13,18 +13,17 @@ public class KlaudiuszVisual extends PApplet {
 
     float[] lerpedBuffer;
 
-
     
 
     public void settings() {
         // size of screen 
-        fullScreen(P3D, SPAN);
+        fullScreen(P3D,SPAN);
     }
 
     float y = 200;
     float lepredY = y;
 
-    int which = 0;
+    int menu = 0;
 
 
     public void setup() {
@@ -39,7 +38,7 @@ public class KlaudiuszVisual extends PApplet {
 
     public void keyPressed() {
         if (keyCode >= '0' && keyCode <= '6') {
-            which = keyCode - '0';
+            menu = keyCode - '0';
         }
         if (keyCode == ' ') {
             if (ap.isPlaying()) {
@@ -53,20 +52,27 @@ public class KlaudiuszVisual extends PApplet {
         {
             twoCubes = ! twoCubes;
         }
+
+        if (keyCode == DOWN)
+        {
+            twoCircles = ! twoCircles;
+        }
     }
 
     float lerpedAverage = 0;
     private float angle = 0;
 
     private boolean twoCubes = false;
+    private boolean twoCircles = false;
 
 
     public void draw() {
         background(0);
         stroke(255);
-        //float halfHeight = height / 2;
+        float halfHeight = height / 2;
         float average = 0;
         float sum = 0;
+       
         // average of the buffer
         for(int i =0; i < ab.size(); i++)
         {
@@ -78,7 +84,7 @@ public class KlaudiuszVisual extends PApplet {
         // calculate the average amplitutde
         lerpedAverage = lerp(lerpedAverage,average, 0.1f);
 
-        switch(which)
+        switch(menu)
         {
             case 0:
             {
@@ -87,8 +93,9 @@ public class KlaudiuszVisual extends PApplet {
                 stroke(c, 255, 255);        
                 strokeWeight(4);
                 noFill();
-                ellipse(width / 2, height / 2, 50 + (lerpedAverage * 500), 50 + (lerpedAverage * 500));                       
+                ellipse(width / 2, height / 2, 50 + (lerpedAverage * 500), 50 + (lerpedAverage * 500));                                 
                 break;
+                
             }   
                 
             case 1:
@@ -135,9 +142,38 @@ public class KlaudiuszVisual extends PApplet {
                     rotateX(angle);
                     box(s);
                     popMatrix();
-                    break;
+                    
                 }
+                break;
             }
+
+            case 3:
+            {
+                 // Iterate over all the elements in the audio buffer
+                 for (int i = 0; i < ab.size(); i++) {
+
+                    float c = map(i, 0, ab.size(), 0, 255);
+                    stroke(c, 255, 255);
+                    lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);        
+                    line(i, halfHeight - lerpedBuffer[i] * halfHeight * 2, i, halfHeight + lerpedBuffer[i] * halfHeight * 2);
+                }        
+                break;
+            }
+
+            case 4:
+            {
+                for (int i = 0; i < ab.size(); i++) {
+
+                    float c = map(i, 0, ab.size(), 0, 255);
+                    stroke(c, 255, 255);
+                    lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);        
+                    line(0, i, lerpedBuffer[i] * halfHeight * 4, i);
+                    line(width, i, width - (lerpedBuffer[i] * halfHeight * 4), i);
+                    line(i, 0, i, lerpedBuffer[i] * halfHeight * 4);
+                    line(i, height, i, height - (lerpedBuffer[i] * halfHeight * 4));
+                }        
+                break;
+            } 
         }
     }
 }
