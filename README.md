@@ -77,23 +77,23 @@ Picture 1: Ellipse
 
 Picture 2: Rectangle
 
-![An image](images/rect.png)
+![An image](images/rect.jpg)
 
 Picture 3: Cube
 
-![An image](images/cube.png)
+![An image](images/cube.jpg)
 
 Picture 4: Duplicate Cube
 
-![An image](images/cube2.png)
+![An image](images/cube2.jpg)
 
 Picture 5: Audio Bar
 
-![An image](images/audio1.png)
+![An image](images/audio1.jpg)
 
 Picture 6: Audio Bar around the edge of screen
 
-![An image](images/audio2.png)
+![An image](images/audio2.jpg)
 
 
 This is a youtube video:
