@@ -12,10 +12,10 @@ Student Number: C19412272
 - Check out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet
 
 # Description of the assignment
-This program uses different java processing libraries to connect to the minim and make the audio from a song interact with different shapes and change colour as the song is playing. The theme of this assesement is "something beautiful to enjoy while listening to music". I was required to make a youube video demonstrating how my assignment operates which can be located down below.
+This program uses different java processing libraries to connect to the minim and make the audio from a song interact with different shapes and change colour as the song is playing. The theme of this assesement is "something beautiful to enjoy while listening to music". I was required to make a youtube video demonstrating how my assignment operates which can be located down below.
 
 # Instructions
-This assignment works on a simple menu basis. Press buttons between 0 and 4 to change in between each audio visulaiser.
+This assignment works on a simple menu basis. Press buttons between 0 and 4 to change in between each audio visualiser. Also press esc to close the program and the song.
 
 # How it works
 When you press to run the program a song should start playing and a shape that interacts with the audio. I implemented a menu to traverse through next audio visualiser. To go to next shape you need to press on your keyboard a number between 0 to 4. You automatically start at 0, so to move onto next shape press a button between 1 and 4. When you press to move onto the next audio visualiser you should see a new shape that also interacts with the song. When you press 2, it will bring up a cube that rotates around itself. You can also press the up arrow key on your keyboard you should be able to see a duplicate being created of the cube. To exit the program press esc and it close the window and stop the music from playing. 
@@ -25,17 +25,13 @@ What am most proud of is implementing the cube to be there and rotate around its
 
 # Markdown Tutorial
 
-This is *emphasis*
+This is a list of audio visualisers that were used in this assignment:
 
-This is a bulleted list
-
-- Item
-- Item
-
-This is a numbered list
-
-1. Item
-1. Item
+0. ellipse
+1. rectangle
+2. cube (3D) UP arrow to duplicate the cube
+3. Audio bar - sound responsive
+4. Audio bars going around the edge of screen
 
 This is a [hyperlink](http://bryanduggan.org)
 
